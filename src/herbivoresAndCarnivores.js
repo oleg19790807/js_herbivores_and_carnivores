@@ -1,3 +1,4 @@
+/* eslint-disable no-useless-constructor */
 'use strict';
 
 class Animal {
@@ -14,9 +15,7 @@ class Animal {
 }
 
 class Herbivore extends Animal {
-  // eslint-disable-next-line constructor-super
   constructor(name, health, hidden) {
-    // eslint-disable-next-line no-undef
     super(name, health);
 
     this.hidden = false;
@@ -28,15 +27,12 @@ class Herbivore extends Animal {
 }
 
 class Carnivore extends Animal {
-  // eslint-disable-next-line no-useless-constructor
   constructor(name, health, hidden) {
     super(name, health, hidden);
   }
 
   bite(item) {
-    // eslint-disable-next-line no-constant-condition
     if (item.hidden === false && item instanceof Herbivore) {
-      // eslint-disable-next-line no-unused-expressions
       item.health -= 50;
       Animal.deadAnimals();
     }
